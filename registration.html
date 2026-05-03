@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration — AMD Soccer Club</title>
+  <meta name="description" content="Register your child for AMD Soccer Club Spring 2025. Recreational and competitive programs available for all ages.">
+  <link rel="icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="index.html" class="nav-logo">
+          <img src="images/logo.png" alt="AMD Soccer Club Logo">
+          <div class="nav-logo-text">AMD Soccer Club<span>Est. [Year] · [Your City]</span></div>
+        </a>
+        <nav aria-label="Main navigation">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="teams.html">Teams</a></li>
+            <li><a href="schedule.html">Schedule</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="registration.html" class="btn-nav">Register Now</a></li>
+          </ul>
+        </nav>
+        <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <a href="index.html">Home</a>
+      <a href="teams.html">Teams</a>
+      <a href="schedule.html">Schedule</a>
+      <a href="news.html">News</a>
+      <a href="contact.html">Contact</a>
+      <a href="registration.html" style="color:#f0c040;font-weight:700;">Register Now →</a>
+    </div>
+  </header>
+
+  <!-- ===== PAGE HERO ===== -->
+  <div class="page-hero">
+    <div class="container">
+      <p class="breadcrumb"><a href="index.html">Home</a> / Registration</p>
+      <h1>Spring 2025 Registration</h1>
+      <p>Secure your player's spot in the upcoming season.</p>
+    </div>
+  </div>
+
+  <!-- ===== PROGRAM SELECTION ===== -->
+  <section class="section">
+    <div class="container">
+
+      <div class="reg-intro">
+        <strong>Registration closes June 1, 2025.</strong> Spaces fill up fast — complete the form below to reserve your player's spot.
+        A member of our team will contact you within 48 hours to confirm placement and provide payment details.
+      </div>
+
+      <h2>Choose a Program</h2>
+      <p class="section-subtitle">Not sure which program is right for your child? <a href="contact.html">Contact us</a> and we'll help you decide.</p>
+
+      <div class="program-cards">
+        <div class="program-card">
+          <h3>Recreational</h3>
+          <div class="price">$<span style="font-size: 2rem;">[Amount]</span> <span>/season</span></div>
+          <ul>
+            <li>Ages 4–12</li>
+            <li>No tryout required</li>
+            <li>Weekend games</li>
+            <li>Club jersey included</li>
+            <li>Certified coaching</li>
+          </ul>
+          <a href="#reg-form" class="btn btn-green" style="width: 100%; text-align: center;">Register →</a>
+        </div>
+
+        <div class="program-card featured">
+          <div style="text-align: center; margin-bottom: 0.75rem;">
+            <span style="background: var(--green-main); color: white; font-size: 0.75rem; font-weight: 700; padding: 3px 12px; border-radius: 12px; letter-spacing: 0.05em;">MOST POPULAR</span>
+          </div>
+          <h3>Competitive</h3>
+          <div class="price">$<span style="font-size: 2rem;">[Amount]</span> <span>/season</span></div>
+          <ul>
+            <li>Ages 9–18</li>
+            <li>Tryout required</li>
+            <li>League + tournaments</li>
+            <li>Full kit included</li>
+            <li>Elite coaching staff</li>
+            <li>Travel to away games</li>
+          </ul>
+          <a href="#reg-form" class="btn btn-green" style="width: 100%; text-align: center;">Register →</a>
+        </div>
+
+        <div class="program-card">
+          <h3>Goalkeeper Training</h3>
+          <div class="price">$<span style="font-size: 2rem;">[Amount]</span> <span>/season</span></div>
+          <ul>
+            <li>Ages 8–18</li>
+            <li>Specialist GK coach</li>
+            <li>Weekly training sessions</li>
+            <li>Add-on to any program</li>
+          </ul>
+          <a href="#reg-form" class="btn btn-green" style="width: 100%; text-align: center;">Register →</a>
+        </div>
+      </div>
+
+      <!-- ===== REGISTRATION FORM ===== -->
+      <h2 id="reg-form" style="margin-top: 1rem;">Registration Form</h2>
+      <p class="section-subtitle">Fill in your details below. Payment information will be sent to you by email after submission.</p>
+
+      <div class="reg-form-wrap">
+        <!--
+          IMPORTANT: Replace YOUR_FORM_ID below with your actual Formspree form ID.
+          Steps:
+          1. Go to https://formspree.io and create a FREE account
+          2. Create a new form
+          3. Copy the form ID (looks like: xpzgkwqr)
+          4. Replace YOUR_FORM_ID in the action URL below
+        -->
+        <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <input type="hidden" name="_subject" value="New AMD Soccer Registration">
+
+          <h3 style="margin-bottom: 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--gray-mid);">Parent / Guardian Information</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name <span class="required">*</span></label>
+              <input type="text" name="parent_first_name" required placeholder="Jane">
+            </div>
+            <div class="form-group">
+              <label>Last Name <span class="required">*</span></label>
+              <input type="text" name="parent_last_name" required placeholder="Smith">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email Address <span class="required">*</span></label>
+              <input type="email" name="email" required placeholder="jane@email.com">
+            </div>
+            <div class="form-group">
+              <label>Phone Number <span class="required">*</span></label>
+              <input type="tel" name="phone" required placeholder="(647) 555-0123">
+            </div>
+          </div>
+
+          <h3 style="margin: 1.5rem 0 1.25rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--gray-mid);">Player Information</h3>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Player First Name <span class="required">*</span></label>
+              <input type="text" name="player_first_name" required placeholder="Alex">
+            </div>
+            <div class="form-group">
+              <label>Player Last Name <span class="required">*</span></label>
+              <input type="text" name="player_last_name" required placeholder="Smith">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Date of Birth <span class="required">*</span></label>
+              <input type="date" name="dob" required>
+            </div>
+            <div class="form-group">
+              <label>Gender</label>
+              <select name="gender">
+                <option value="">Select...</option>
+                <option>Boy</option>
+                <option>Girl</option>
+                <option>Prefer not to say</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Program <span class="required">*</span></label>
+            <select name="program" required>
+              <option value="">Select a program...</option>
+              <option>Recreational (U4)</option>
+              <option>Recreational (U6)</option>
+              <option>Recreational (U8)</option>
+              <option>Recreational (U10)</option>
+              <option>Recreational (U12)</option>
+              <option>Competitive (U11 Boys)</option>
+              <option>Competitive (U11 Girls)</option>
+              <option>Competitive (U14 Boys)</option>
+              <option>Competitive (U14 Girls)</option>
+              <option>Competitive (U18 Boys)</option>
+              <option>Competitive (U18 Girls)</option>
+              <option>Goalkeeper Training (add-on)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Previous Soccer Experience</label>
+            <select name="experience">
+              <option value="">Select...</option>
+              <option>First time playing</option>
+              <option>1–2 years recreational</option>
+              <option>3+ years recreational</option>
+              <option>Previous competitive experience</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Medical Conditions or Allergies We Should Know About</label>
+            <textarea name="medical" placeholder="Leave blank if none"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label>How did you hear about AMD Soccer Club?</label>
+            <select name="referral">
+              <option value="">Select...</option>
+              <option>Friend or family</option>
+              <option>Google search</option>
+              <option>Social media</option>
+              <option>Flyer or poster</option>
+              <option>Returning family</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Additional Comments or Questions</label>
+            <textarea name="comments" placeholder="Anything else you'd like us to know?"></textarea>
+          </div>
+
+          <div class="form-group" style="display: flex; align-items: flex-start; gap: 0.6rem;">
+            <input type="checkbox" id="consent" name="consent" required style="width: auto; margin-top: 3px;">
+            <label for="consent" style="font-weight: 400; font-size: 0.88rem; color: var(--gray-text);">
+              I agree to the AMD Soccer Club <a href="#" style="color: var(--green-main);">Code of Conduct</a> and <a href="#" style="color: var(--green-main);">Waiver of Liability</a>, and consent to my child participating in club activities. <span class="required">*</span>
+            </label>
+          </div>
+
+          <button type="submit">Submit Registration</button>
+          <p class="form-note" style="margin-top: 0.75rem; text-align: center;">
+            You will receive a confirmation email. Payment details will be sent separately.
+          </p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">AMD <span>Soccer Club</span></div>
+          <p>Youth soccer in [Your City] since [Year].</p>
+        </div>
+        <div class="footer-col"><h4>Quick Links</h4><ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="teams.html">Teams</a></li>
+          <li><a href="schedule.html">Schedule</a></li>
+          <li><a href="registration.html">Registration</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul></div>
+        <div class="footer-col"><h4>Contact</h4><ul>
+          <li><a href="mailto:info@amdsoccer.ca">info@amdsoccer.ca</a></li>
+        </ul></div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="year"></span> AMD Soccer Club. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

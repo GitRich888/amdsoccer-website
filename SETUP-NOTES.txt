@@ -1,0 +1,195 @@
+====================================================
+ AMD SOCCER CLUB — WEBSITE SETUP NOTES
+====================================================
+Read this before going live. It covers everything
+you need to customize and connect.
+====================================================
+
+STEP 1 — FIND AND REPLACE PLACEHOLDER TEXT
+-------------------------------------------
+Search the entire project folder for these placeholders
+and replace with your real information:
+
+  [Your City]       → e.g. North York, Mississauga
+  [Year]            → founding year, e.g. 2008
+  [Coach Name]      → actual coach names
+  [Park Name]       → actual field/park names
+  [Amount]          → registration fee amounts
+  [League Name]     → league your teams play in
+  [Street Address]  → club mailing address
+  [Province]        → e.g. Ontario
+  [Postal Code]     → e.g. M2N 5J2
+  [President Name]  → club president's name
+  [Registrar Name]  → registrar's name
+  [Director Name]   → director of coaching name
+  YOURPAGE          → your Facebook page URL slug
+  YOURHANDLE        → your Instagram/Twitter handle
+
+
+STEP 2 — YOUR LOGO
+-------------------
+Replace  images/logo.png  with your actual club logo.
+- Recommended size: 200×200 px (it will be displayed at 48px height)
+- File must be named  logo.png  OR update the src= in each HTML file
+- If your logo is a different format (.jpg, .svg), update the
+  <img src="images/logo.png"> line in all 6 HTML files
+
+
+STEP 3 — HERO BACKGROUND IMAGE
+--------------------------------
+The home page hero section uses:  images/hero-bg.jpg
+- This is shown at low opacity behind the green background
+- Replace with a photo of your team, a game, or a field
+- Recommended: landscape orientation, at least 1400px wide
+- Compress it first at https://squoosh.app before uploading
+
+
+STEP 4 — SET UP FORMSPREE (free contact/registration forms)
+-------------------------------------------------------------
+Both contact.html and registration.html use Formspree
+to receive form submissions by email.
+
+  1. Go to https://formspree.io and create a FREE account
+  2. Click "+ New Form" — give it a name (e.g. "AMD Contact Form")
+  3. Copy the Form ID shown (looks like: xpzgkwqr)
+  4. In contact.html, find this line and replace YOUR_CONTACT_FORM_ID:
+       action="https://formspree.io/f/YOUR_CONTACT_FORM_ID"
+  5. In registration.html, find and replace YOUR_FORM_ID:
+       action="https://formspree.io/f/YOUR_FORM_ID"
+  6. Free plan allows 50 submissions/month — plenty for a soccer club
+
+  NOTE: You can use the same Form ID for both forms, or create
+  two separate forms (recommended so emails are easier to sort).
+
+
+STEP 5 — EMBED GOOGLE MAPS
+-----------------------------
+In contact.html, find this comment:
+  <!-- TO ADD YOUR GOOGLE MAP: ... -->
+
+  1. Go to https://maps.google.com
+  2. Search your club's address or home field
+  3. Click Share → Embed a map → select size "600x450" or similar
+  4. Copy the entire <iframe ...></iframe> code
+  5. Replace the placeholder <div> in contact.html with the <iframe>
+
+
+STEP 6 — EMBED GOOGLE CALENDAR (optional)
+-------------------------------------------
+In schedule.html, there's a calendar placeholder.
+
+  1. Go to calendar.google.com
+  2. Create a calendar called "AMD Soccer Club" (or use existing)
+  3. Add all games, practices, and events
+  4. Click the 3-dot menu next to the calendar → Settings
+  5. Scroll to "Integrate calendar" → copy the "Public URL" embed code
+  6. Paste the <iframe> into schedule.html where the placeholder is
+  7. Make sure the calendar is set to "public" visibility
+
+
+STEP 7 — UPDATE SCHEDULE TABLE
+--------------------------------
+In schedule.html, the <tbody> section has sample rows.
+Replace each row with your real game data.
+
+Row template:
+  <tr data-team="u14b">
+    <td>May 10, 2025</td>
+    <td>10:00 AM</td>
+    <td>U14 Boys</td>
+    <td>Opponent Team Name</td>
+    <td>Field Name, Address</td>
+    <td><span class="badge-home">Home</span></td>
+    <td>—</td>
+  </tr>
+
+data-team values (must match filter buttons):
+  u4, u6, u8, u10, u12, u14b, u14g, u18b, u18g
+
+
+STEP 8 — COLORS (if your club uses different colors)
+------------------------------------------------------
+Open  css/style.css  and find the :root section at the top.
+Change these two values to match your club colors:
+
+  --green-dark:  #0f5c2a;   ← darkest shade (header, footer)
+  --green-main:  #1a7a3a;   ← main brand green
+  --gold:        #f0c040;   ← accent / button color
+
+Use a color picker like https://coolors.co to find your hex codes.
+You can also use your browser's Inspector tool on your existing
+amdsoccer.ca website to find the exact hex codes currently in use.
+
+
+STEP 9 — DEPLOY TO GITHUB PAGES
+---------------------------------
+  1. Go to https://github.com — create a free account
+  2. Download GitHub Desktop: https://desktop.github.com
+  3. Create a new repository called  amdsoccer-website  (public)
+  4. In GitHub Desktop: Add Local Repository → select this folder
+  5. Click "Publish Repository"
+  6. On github.com: Repository → Settings → Pages
+     → Source: "Deploy from branch" → branch: main → Save
+  7. Your site goes live at:
+     https://YOURUSERNAME.github.io/amdsoccer-website
+
+  To update the site later:
+  → Edit files in VS Code
+  → In GitHub Desktop: write a commit message → Commit → Push
+  → Site updates automatically within ~2 minutes
+
+
+STEP 10 — POINT YOUR amdsoccer.ca DOMAIN TO GITHUB
+----------------------------------------------------
+  1. The CNAME file in this folder is already set to amdsoccer.ca
+  2. In your GitHub repo Settings → Pages → Custom Domain:
+     Type  amdsoccer.ca  and save
+  3. Log into your domain registrar (GoDaddy, Namecheap, etc.)
+  4. Go to DNS / Name Servers settings
+  5. Add these 4 A records (Type: A, Host: @):
+       185.199.108.153
+       185.199.109.153
+       185.199.110.153
+       185.199.111.153
+  6. Add a CNAME record:
+       Type: CNAME
+       Host: www
+       Value: YOURUSERNAME.github.io
+  7. Wait up to 48 hours for DNS to propagate
+  8. Back in GitHub Pages settings: check "Enforce HTTPS"
+  
+  IMPORTANT: Do NOT cancel your hosting plan until AFTER
+  the DNS has fully switched and your site is working at
+  amdsoccer.ca. Test it first!
+
+
+FILES IN THIS PROJECT
+---------------------
+  index.html          Home page
+  teams.html          Teams & programs page
+  schedule.html       Game schedule page
+  registration.html   Registration form
+  contact.html        Contact page
+  news.html           News & announcements
+  css/style.css       All styling (colors, fonts, layout)
+  js/main.js          Navigation, filters, form behavior
+  images/             Put all your photos and logo here
+  CNAME               Your domain name (do not edit)
+  SETUP-NOTES.txt     This file
+
+
+NEED HELP?
+----------
+You can ask Claude (claude.ai) to help you:
+  - Add new pages
+  - Change colors or fonts
+  - Add a photo gallery
+  - Fix any layout issues
+  - Add new schedule rows
+  - Write the news posts
+
+Just paste the relevant HTML/CSS and describe what you want changed.
+
+====================================================
+ Good luck with the new site! ⚽
+====================================================
